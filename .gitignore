@@ -33,3 +33,4 @@ frontend/.vite/
 .env
 .env.*
 !.env.example
+.playwright-mcp

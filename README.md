@@ -32,10 +32,10 @@ Primary endpoints:
 
 ## Simple Tool Demo
 
-The backend registers a minimal Spring AI tool named `getCurrentTime`.
-Ask the model questions such as `现在几点了？` or `今天日期是什么？` and it can call the tool to return realtime time information for `Asia/Shanghai`.
+后端注册了一个最小可用的 Spring AI 工具 `getCurrentTime`。
+你可以直接问 `现在几点了？`、`今天日期是什么？` 之类的问题，模型会调用这个工具来返回 `Asia/Shanghai` 时区的实时信息。
 
-It also registers a `calculate` tool for basic arithmetic. Ask questions such as `123 * 45 等于多少？` or `2 的 8 次方是多少？` and the model can call the calculator tool instead of relying on free-form reasoning.
+后端还注册了一个 `calculate` 工具用于基础计算。你可以问 `123 * 45 等于多少？` 或 `2 的 8 次方是多少？`，模型会优先调用计算器工具，而不是直接自由生成结果。
 
 ## Frontend
 

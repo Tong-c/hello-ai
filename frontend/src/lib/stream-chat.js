@@ -1,6 +1,6 @@
 const API_BASE = import.meta.env.VITE_API_BASE || '';
 
-export async function streamChat({ message, file, onToken, onError }) {
+export async function streamChat({ message, file, onToken, onTool, onError }) {
   const formData = new FormData();
   formData.append('message', message);
   if (file) {
@@ -41,11 +41,20 @@ export async function streamChat({ message, file, onToken, onError }) {
 
       if (event.data.eventType === 'token') {
         onToken?.(event.data.content || '');
+      } else if (event.data.eventType === 'tool') {
+        await onTool?.(event.data);
+        await nextAnimationFrame();
       } else if (event.data.eventType === 'error') {
         onError?.(event.data.content || 'The server returned an error.');
       }
     }
   }
+}
+
+function nextAnimationFrame() {
+  return new Promise((resolve) => {
+    window.requestAnimationFrame(() => resolve());
+  });
 }
 
 function parseSseChunk(chunk) {

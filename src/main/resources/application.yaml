@@ -14,3 +14,9 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+
+logging:
+  level:
+    com.tc.ai: INFO
+    org.springframework.ai.chat.client.advisor: DEBUG
+    org.springframework.ai.tool: DEBUG
